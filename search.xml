@@ -31,6 +31,8 @@
     <content><![CDATA[<p>该博客建立时是在（F:\CodeManage\git）路径下储存文件，全程操作都在该文件里。</p>
 <h2 id="1-申请域名"><a href="#1-申请域名" class="headerlink" title="1.申请域名"></a>1.申请域名</h2><p>在阿里云官网，点域名搜索，搜索自己想要注册的域名，购买。若没有阿里云账号，先注册账号。域名要实名认证（控制台-&gt;域名）。github仓库建好后，再将域名解析到github仓库。</p>
 <h2 id="2-github仓库搭建"><a href="#2-github仓库搭建" class="headerlink" title="2.github仓库搭建"></a>2.github仓库搭建</h2><p>打开vpn注册github账号，新建仓库，仓库名以.github.io结尾，然后点create repository。这时将域名解析到仓库地址（<a href="https://github.com/watch-xx/watch.github.io），然后在该仓库的settings里将custom" target="_blank" rel="noopener">https://github.com/watch-xx/watch.github.io），然后在该仓库的settings里将custom</a> domain 填上自己的域名，便可以通过域名访问该仓库了。下面通过hexo搭建博客主页。</p>
+<a id="more"></a>
+
 <h2 id="3-git"><a href="#3-git" class="headerlink" title="3.git"></a>3.git</h2><h3 id="3-1安装git"><a href="#3-1安装git" class="headerlink" title="3.1安装git"></a>3.1安装git</h3><p>官网下载git,默认安装。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version	<span class="comment">#查看版本号。</span></span><br></pre></td></tr></table></figure>
 
@@ -67,9 +69,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line"> 30   small: /images/favicon-16x16-next.png</span><br><span class="line"> 31   medium: /images/favicon.ico			<span class="comment">#修改这行即可</span></span><br><span class="line"> 32   apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line"> 33   safari_pinned_tab: /images/logo.svg</span><br></pre></td></tr></table></figure>
 
 <h6 id="6-设置菜单"><a href="#6-设置菜单" class="headerlink" title="6.设置菜单"></a>6.设置菜单</h6><p>发布<br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
-<a id="more"></a>
-
-<hr>
 ]]></content>
       <categories>
         <category>hexo</category>
