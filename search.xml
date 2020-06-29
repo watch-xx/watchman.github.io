@@ -43,7 +43,16 @@
 <h6 id="5-设置网站图标"><a href="#5-设置网站图标" class="headerlink" title="5.设置网站图标"></a>5.设置网站图标</h6><p>裁剪一个32*32的图片， .jpg/.png皆可，并在（<a href="https://tool.lu/favicon/）等网站制作成favtion文件，" target="_blank" rel="noopener">https://tool.lu/favicon/）等网站制作成favtion文件，</a> favtion.ico。<br>保存在 （F:\CodeManage\git\themes\next\source\images） 路径下。在路径（F:\CodeManage\git\themes\next）下打开 _config.yml。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line"> 30   small: /images/favicon-16x16-next.png</span><br><span class="line"> 31   medium: /images/favicon.ico			<span class="comment">#修改这行即可</span></span><br><span class="line"> 32   apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line"> 33   safari_pinned_tab: /images/logo.svg</span><br></pre></td></tr></table></figure>
 
-<h6 id="6-设置菜单"><a href="#6-设置菜单" class="headerlink" title="6.设置菜单"></a>6.设置菜单</h6><p>发布<br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+<h6 id="6-设置菜单"><a href="#6-设置菜单" class="headerlink" title="6.设置菜单"></a>6.设置菜单</h6><p>在（F:\CodeManage\git\themes\next）路径下打开_config.yml。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /|| home</span><br><span class="line">  about: /about/|| user</span><br><span class="line">  tags: /tags/|| tags</span><br><span class="line">  categories: /categories/|| th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/|| calendar</span></span><br><span class="line">  sitemap: /sitemap.xml|| sitemap</span><br><span class="line">  <span class="comment"># commonweal: /404/|| heartbeat</span></span><br></pre></td></tr></table></figure>
+<p>在需要打开的菜单前去掉注释即可。注意 “||” 前删掉空格，否则就会404。</p>
+<p>手动生成 about ,tags ,categories 等页面,分别在/source/about , /source/tags , /source/categories 下生成一个 index.md文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>在tags文件页面 （/source/tags/index.md）添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2019-06-29 11:35:42   <span class="comment"># 时间随意</span></span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span>                <span class="comment"># 类型一定要为tags</span></span><br><span class="line">comments: <span class="literal">false</span>             <span class="comment"># 提示这个页面不需要加载评论</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+
+<p>发布<br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
 ]]></content>
       <categories>
         <category>hexo</category>
