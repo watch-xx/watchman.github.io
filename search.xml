@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>FPGA远程更新/在线升级</title>
+    <url>/2021/01/11/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0-%E5%9C%A8%E7%BA%BF%E5%8D%87%E7%BA%A7/</url>
+    <content><![CDATA[<h1 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1.摘要"></a>1.摘要</h1><p>　　对最近做的<strong>FPGA远程更新/在线升级</strong>做一个总结。一般在代码开发阶段，我们使用JTAG烧写代码，但当产品投入到实际使用过程中，难以再用JTAG进行固件更新。所以需要开发远程/在线更新的功能，即使用产品自带的通讯接口（如c串口，以太网接口等）传输待更新的固件包，实现固件更新升级的功能。本文所使用的平台是ALTERA公司的cyclone IV E系列产品EP4CE30F17，PC通过串口将待更新的固件包传发送到FPGA，FPGA将接收的固件包写入FPGA的配置  flash:EPCS16中，并以新收到的固件包覆盖原来通过JTAG烧写的代码，当芯片重新上电或者进行一次重配置，FPGA便会执行新的固件包。</p>
+<h1 id="2-FPGA上电加载过程"><a href="#2-FPGA上电加载过程" class="headerlink" title="2.FPGA上电加载过程"></a>2.FPGA上电加载过程</h1><p>　　目前，大多数FPGA芯片是基于 SRAM 的结构的， 而 SRAM 单元中的数据掉电就会丢失，因此系统上电后，必须要由配置电路将正确的配置数据加载到 SRAM 中，FPGA才能正常运行。EP4CE30F17采用EPCS16作为配置芯片，所以我们要做的就是将要更新的固件包烧写到此EPCS16芯片中。每次芯片上电，配置电路就会加载EPCS16中的固件包，进行一次配置，FPGA还有一个重配置的ip核，也可以在FPGA运行过程中进行重配置。</p>
+<h2 id="2-1FPGA配置方式"><a href="#2-1FPGA配置方式" class="headerlink" title="2.1FPGA配置方式"></a>2.1FPGA配置方式</h2><p>1.JTAG方式</p>
+<p>　　通过JTAG接口，利用Quartus II软件可以直接对FPGA进行单独的硬件重新配置。Quartus II软件在编译时会自动生成用于JTAG配置的.sof文件。如果同时使用AS方式和JTAG方式来配置FPGA，JTAG配置方式拥有最高的优先级，此时AS方式将停止，而执行JTAG方式配置。</p>
+<p>2.FPGA主动串行(AS)方式</p>
+<p>　　主动串行配置方式(AS)是将配置数据事先存储在串行配置器件EPCS中,然后在系统上电时Cyclone IV FPGA通过串行接口读取配置数据（如果是压缩数据，还会进行解压缩处理）对内部的SRAM单元进行配置。因为上述配置过程中FPGA控制配置接口，因此通常称为主动配置方式。在配置期间，Cyclone IV用过串行接口来读配置数据，来对里面的SRAM编程。串行配置器件的四个接口包括，串行时钟输入DCLK，串行数据输出DATA，低有效的片选信号NCE，串行数据输入ASDI。本文就是采用这种方式。</p>
+<p>3.FPGA被动(Passive)方式</p>
+<p>　　此方法用的较少，不做介绍。</p>
+<h2 id="2-2配置芯片EPCS16"><a href="#2-2配置芯片EPCS16" class="headerlink" title="2.2配置芯片EPCS16"></a>2.2配置芯片EPCS16</h2><p>！<a href="F:\CodeManage\git\source\img\FPGA远程更新\flash芯片列表">flash芯片列表</a></p>
+]]></content>
+      <categories>
+        <category>FPGA</category>
+      </categories>
+      <tags>
+        <tag>FPGA</tag>
+        <tag>ALTERA</tag>
+        <tag>远程更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>搭建个人博客</title>
     <url>/2020/06/29/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>该博客建立时是在（F:\CodeManage\git）路径下储存文件，全程操作都在该文件里。</p>
