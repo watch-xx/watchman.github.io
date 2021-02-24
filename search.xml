@@ -12,9 +12,9 @@
 <p>　　主动串行配置方式(AS)是将配置数据事先存储在串行配置器件EPCS中,然后在系统上电时Cyclone IV FPGA通过串行接口读取配置数据（如果是压缩数据，还会进行解压缩处理）对内部的SRAM单元进行配置。因为上述配置过程中FPGA控制配置接口，因此通常称为主动配置方式。在配置期间，Cyclone IV用过串行接口来读配置数据，来对里面的SRAM编程。串行配置器件的四个接口包括，串行时钟输入DCLK，串行数据输出DATA，低有效的片选信号NCE，串行数据输入ASDI。本文就是采用这种方式。</p>
 <p>3.FPGA被动(Passive)方式</p>
 <p>　　此方法用的较少，不做介绍。</p>
-<h2 id="2-2配置芯片EPCS16"><a href="#2-2配置芯片EPCS16" class="headerlink" title="2.2配置芯片EPCS16"></a>2.2配置芯片EPCS16</h2><p><img src="D:%5Cgit%5Csource%5Cimg%5CFPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0%5Cflash%E8%8A%AF%E7%89%87%E5%88%97%E8%A1%A8.JPG" alt="flash芯片列表"></p>
+<h2 id="2-2配置芯片EPCS16"><a href="#2-2配置芯片EPCS16" class="headerlink" title="2.2配置芯片EPCS16"></a>2.2配置芯片EPCS16</h2><p><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/flash%E8%8A%AF%E7%89%87%E5%88%97%E8%A1%A8.JPG" alt="flash芯片列表"></p>
 <p>　　如上图为EPCS系列容量表。EP4CE30F23I7采用EPCS16作为配置芯片，EPCS16共有16Mbit的存储空间被分成了32个扇区（ sector），每个扇区又分成256页（ page），每一页包含256字节。EPCS16各扇区的字节地址如下图所示：<br>对EPCS16的具体操作，在讲到ASMI IP核时再具体讲，我们利用ALTERA官方的IP核来对EPCS16进行擦除、读、写的操作。</p>
-<p><img src="D:%5Cgit%5Csource%5Cimg%5CFPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0%5CEPCS16%E5%9C%B0%E5%9D%80.JPG" alt="EPCS16地址"></p>
+<p><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/EPCS16%E5%9C%B0%E5%9D%80.JPG" alt="EPCS16地址"></p>
 <h2 id="2-3FPGA生成的几种文件"><a href="#2-3FPGA生成的几种文件" class="headerlink" title="2.3FPGA生成的几种文件"></a>2.3FPGA生成的几种文件</h2><h3 id="1-sof文件"><a href="#1-sof文件" class="headerlink" title="1.sof文件"></a>1.sof文件</h3><p>　　sof文件是编译（分析、综合、布线、生成、时序）过程中生成的一个文件，生成的sof文件是可以直接通过JTAG口下载到FPGA的SRAM中去并直接执行。</p>
 <h3 id="2-jic文件"><a href="#2-jic文件" class="headerlink" title="2.jic文件"></a>2.jic文件</h3><p>　　jic文件不是在编译过程中生成的，而是需要使用Quartus II软件的“Convert Programing File”功能将sof文件转换得到的。得到的jic文件，通过JTAG口可以将jic文件通过FPGA作为桥接芯片下载到配置芯片中去。</p>
 <h3 id="3-pof文件"><a href="#3-pof文件" class="headerlink" title="3.pof文件"></a>3.pof文件</h3><p>　　pof文件和sof文件一样也是在Assemble过程中生成的，但是pof文件是不能直接下载到FPGA的SRAM中去的，而是通过ASP端口直接下载到FPGA的配置芯片中去的。配置芯片一般是串行FLASH芯片，在上电的时候FPGA会主动的从配置芯片中读取数据并烧写内部的SRAM数据然后执行程序。（在assignments – device – device and pin option, 在configuration 选项卡当中，要勾上Use Configuration device，并选择好配置芯片。 选择configuration scheme为Active Serial，编译就能生成pof文件）</p>
