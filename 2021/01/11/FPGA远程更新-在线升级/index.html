@@ -94,8 +94,10 @@
 <meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/EPCS16%E5%9C%B0%E5%9D%80.JPG">
 <meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG">
 <meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8.JPG">
+<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG">
+<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8.JPG">
 <meta property="article:published_time" content="2021-01-10T16:14:35.000Z">
-<meta property="article:modified_time" content="2021-03-02T13:33:50.941Z">
+<meta property="article:modified_time" content="2021-03-02T14:20:36.420Z">
 <meta property="article:author" content="Zhou Xi">
 <meta property="article:tag" content="FPGA">
 <meta property="article:tag" content="ALTERA">
@@ -404,12 +406,9 @@
 <h3 id="3-pof文件"><a href="#3-pof文件" class="headerlink" title="3.pof文件"></a>3.pof文件</h3><p>　　pof文件和sof文件一样也是在Assemble过程中生成的，但是pof文件是不能直接下载到FPGA的SRAM中去的，而是通过ASP端口直接下载到FPGA的配置芯片中去的。配置芯片一般是串行FLASH芯片，在上电的时候FPGA会主动的从配置芯片中读取数据并烧写内部的SRAM数据然后执行程序。（在assignments – device – device and pin option, 在configuration 选项卡当中，要勾上Use Configuration device，并选择好配置芯片。 选择configuration scheme为Active Serial，编译就能生成pof文件）</p>
 <h3 id="4-rpd文件"><a href="#4-rpd文件" class="headerlink" title="4.rpd文件"></a>4.rpd文件</h3><p>　　RPD为包含cyclone系列芯片二进制位流数据和配置数据的二进制文件的合成文件。我们生成rpd文件前，先要生成Pof文件再用Quartus II软件的“Convert Programing File”功能将pof文件转换成rpd文件。</p>
 <p>　　我们一般是通过JTAG将Jic文件烧进EPCS16,在线升级是将rpd文件通过串口/网口等方式烧进EPCS16，当然烧写的过程是依靠FPGA来完成，我们要写一段代码用来接收串口/网口数据，将其写入EPCS16中。jic、rpd文件生成时，都是占2M字节，但文件内实际有效的并没有那么大，其中无效的数据都由FF填满，可以手动删除，但至少保留32个字节的FF。</p>
-<h1 id="3-需要使用到的IP核"><a href="#3-需要使用到的IP核" class="headerlink" title="3.需要使用到的IP核"></a>3.需要使用到的IP核</h1><pre><code>主要是“ASMI IP核”和“ Remote Update IP核”，还有PLL IP核。PLL不必多说。另外两个IP核配置如下图。</code></pre><figure class="half">
-    <img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA远程更新/ASMI核端口选择.JPG">
-    <img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA远程更新/ASMI核.JPG">
-</figure>
-
-<pre><code>![ASMI IP核端口选择](https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA远程更新/ASMI核.JPG) </code></pre><h1 id="3-功能实现思路"><a href="#3-功能实现思路" class="headerlink" title="3.功能实现思路"></a>3.功能实现思路</h1><p>　　我们需要用到2个Ip核。“ASMI IP核”和“ Remote Update IP核”。<br>　　其中ASMI IP核主要实现读写配置存储器EPCS16，这个IP核就是用来擦除，写，读EPCS16，我们通过这个ip核，不用再管对EPCS16擦除，写，读的时序，EPCS16的擦除，写，读时序也并不复杂，完全可以直接写，在EPCS16手册里有详细的时序图，但推荐使用asmi ip核，因为要使用remote update ip核的“pof_error”功能，必须要使用asmi Ip核，具体的后面再介绍。<br>　　remote update ip核 用于实现重配置，简单来说就是重新进行一次配置，在FPGA每次上电时，都会进行一次配置，将EPCS16中的数据加载到ram里，默认上电配置是加载0地址的数据，重配置可以指定需要加载的地址。当我们更新完镜像文件后，要进行一次重配置，重新加载更新后的数据配置电路。</p>
+<h1 id="3-需要使用到的IP核"><a href="#3-需要使用到的IP核" class="headerlink" title="3.需要使用到的IP核"></a>3.需要使用到的IP核</h1><pre><code>主要是“ASMI IP核”和“ Remote Update IP核”，还有PLL IP核。PLL不必多说。另外两个IP核配置如下图。</code></pre><p>　　如下面左边图所示,选择要添加的端口。注意“Single byte write”和“Page write”分别表示以“单字节”写入或“多字节”写入。EPCS16是支持多字节写入的，最多可连续写入256个字节，我这里选择的是单字节写入。“Use ‘bulk_erase’ port”和“Use ‘sector_erase’ port”分别表示是以一次性擦除所以扇区和每次只擦除一个扇区。具体内容可参照“Serial Configuration Devices(EPCS1, EPCS4, EPCS16, EPCS64,and EPCS128) Data Sheet”和“ASMI Parallel Intel® FPGA IP Core User Guide”这两个文档，在ALTERA官网可以找到，里面有具体的读，写，擦除的时序图。<br><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG" alt="ASMI IP核端口选择"><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8.JPG" alt="ASMI IP核端口选择"></p>
+<p>　　REMOTE IP核配置如下图，最好将 “Enable reconfig POF checking”选上，这是该IP核的一个功能，当触发重配置，该功能会校验指定重配置地址的镜像文件是否是有效地，这一点至关重要，后面讲实现思路时再具体讲为什么一定要这个功能。<br><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG" alt="ASMI IP核端口选择"><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8.JPG" alt="ASMI IP核端口选择"></p>
+<h1 id="3-功能实现思路"><a href="#3-功能实现思路" class="headerlink" title="3.功能实现思路"></a>3.功能实现思路</h1><p>　　我们需要用到2个Ip核。“ASMI IP核”和“ Remote Update IP核”。<br>　　其中ASMI IP核主要实现读写配置存储器EPCS16，这个IP核就是用来擦除，写，读EPCS16，我们通过这个ip核，不用再管对EPCS16擦除，写，读的时序，EPCS16的擦除，写，读时序也并不复杂，完全可以直接写，在EPCS16手册里有详细的时序图，但推荐使用asmi ip核，因为要使用remote update ip核的“pof_error”功能，必须要使用asmi Ip核，具体的后面再介绍。<br>　　remote update ip核 用于实现重配置，简单来说就是重新进行一次配置，在FPGA每次上电时，都会进行一次配置，将EPCS16中的数据加载到ram里，默认上电配置是加载0地址的数据，重配置可以指定需要加载的地址。当我们更新完镜像文件后，要进行一次重配置，重新加载更新后的数据配置电路。</p>
 <p>　　一个完整的远程系统升级应该包括两个工程文件。一个出厂配置工程，一个应用工程。两个工程分别在EPCS16中所占的储存空间是 0x0 ~ 0x5FFFF，0x60000 ~ 0x1FFFFF。FPGA上电，执行出厂配置工程，立刻触发一次重配置，执行应用工程程序。触发重配置时，会执行”pof_error”，这是remote update ip核的一个功能，它会去读取指定重配置地址的工程文件是否是有效的，若是一个有效的文件，就会执行重配置,去执行应用工程；若该地址文件为不完整文件或空文件，则会重配置失败，FPGA配置的电路还是出厂配置工程，然后在出厂配置工程里实现接收串口/网口的更新数据并将其写入flash。</p>
 
       
