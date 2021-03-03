@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="FPGA,ALTERA,远程更新/在线升级," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -83,27 +83,14 @@
 
 
 
-<meta name="description" content="1.摘要　　对最近做的FPGA远程更新&#x2F;在线升级做一个总结。一般在代码开发阶段，我们使用JTAG烧写代码，但当产品投入到实际使用过程中，难以再用JTAG进行固件更新。所以需要开发远程&#x2F;在线更新的功能，即使用产品自带的通讯接口（如c串口，以太网接口等）传输待更新的固件包，实现固件更新升级的功能。本文所使用的平台是ALTERA公司的cyclone IV E系列产品EP4CE30F23I7，PC通过串口">
-<meta property="og:type" content="article">
-<meta property="og:title" content="FPGA远程更新&#x2F;在线升级">
-<meta property="og:url" content="http://yoursite.com/2021/01/11/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0-%E5%9C%A8%E7%BA%BF%E5%8D%87%E7%BA%A7/index.html">
+<meta name="description" content="Accumulate and summarize">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alxa">
+<meta property="og:url" content="http://yoursite.com/archives/2021/03/index.html">
 <meta property="og:site_name" content="Alxa">
-<meta property="og:description" content="1.摘要　　对最近做的FPGA远程更新&#x2F;在线升级做一个总结。一般在代码开发阶段，我们使用JTAG烧写代码，但当产品投入到实际使用过程中，难以再用JTAG进行固件更新。所以需要开发远程&#x2F;在线更新的功能，即使用产品自带的通讯接口（如c串口，以太网接口等）传输待更新的固件包，实现固件更新升级的功能。本文所使用的平台是ALTERA公司的cyclone IV E系列产品EP4CE30F23I7，PC通过串口">
-<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/%E7%94%9F%E6%88%90%E7%9A%84JIC%E6%96%87%E4%BB%B6%E6%8C%87%E5%AE%9A%E5%9C%B0%E5%9D%80.JPG">
-<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/flash%E8%8A%AF%E7%89%87%E5%88%97%E8%A1%A8.JPG">
-<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/EPCS16%E5%9C%B0%E5%9D%80.JPG">
-<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG">
-<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8.JPG">
-<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG">
-<meta property="og:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8.JPG">
-<meta property="article:published_time" content="2021-01-10T16:14:35.000Z">
-<meta property="article:modified_time" content="2021-03-02T14:45:26.211Z">
+<meta property="og:description" content="Accumulate and summarize">
 <meta property="article:author" content="Zhou Xi">
-<meta property="article:tag" content="FPGA">
-<meta property="article:tag" content="ALTERA">
-<meta property="article:tag" content="远程更新&#x2F;在线升级">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/%E7%94%9F%E6%88%90%E7%9A%84JIC%E6%96%87%E4%BB%B6%E6%8C%87%E5%AE%9A%E5%9C%B0%E5%9D%80.JPG">
 
 
 
@@ -133,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/01/11/FPGA远程更新-在线升级/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2021/03/"/>
 
 
 
 
 
-  <title>FPGA远程更新/在线升级 | Alxa</title>
+  <title>归档 | Alxa</title>
   
 
 
@@ -158,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -286,196 +273,74 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        嗯..! 目前共计 2 篇日志。 继续努力。
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2021">2021</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/11/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0-%E5%9C%A8%E7%BA%BF%E5%8D%87%E7%BA%A7/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhou Xi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alxa">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2021/03/04/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0-%E5%9C%A8%E7%BA%BF%E5%8D%87%E7%BA%A7/" itemprop="url">
+              
+                <span itemprop="name">FPGA远程更新/在线升级</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">FPGA远程更新/在线升级</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-11T00:14:35+08:00">
-                2021-01-10
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2021-03-03T22:00:00Z"
+              content="2021-03-03" >
+          03-03
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/FPGA/" itemprop="url" rel="index">
-                    <span itemprop="name">FPGA</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1.摘要"></a>1.摘要</h1><p>　　对最近做的<strong>FPGA远程更新/在线升级</strong>做一个总结。一般在代码开发阶段，我们使用JTAG烧写代码，但当产品投入到实际使用过程中，难以再用JTAG进行固件更新。所以需要开发远程/在线更新的功能，即使用产品自带的通讯接口（如c串口，以太网接口等）传输待更新的固件包，实现固件更新升级的功能。本文所使用的平台是ALTERA公司的cyclone IV E系列产品EP4CE30F23I7，PC通过串口将待更新的固件包传发送到FPGA，FPGA将接收的固件包写入FPGA的配置  flash:EPCS16中，并以新收到的固件包覆盖原来通过JTAG烧写的代码，当芯片重新上电或者进行一次重配置，FPGA便会执行新的固件包。</p>
-<h1 id="2-FPGA上电加载过程"><a href="#2-FPGA上电加载过程" class="headerlink" title="2.FPGA上电加载过程"></a>2.FPGA上电加载过程</h1><p>　　目前，大多数FPGA芯片是基于 SRAM 的结构的， 而 SRAM 单元中的数据掉电就会丢失，因此系统上电后，必须要由配置电路将正确的配置数据加载到 SRAM 中，FPGA才能正常运行。EP4CE30F23I7采用EPCS16作为配置芯片，所以我们要做的就是将要更新的固件包烧写到此EPCS16芯片中。每次芯片上电，配置电路就会加载EPCS16中的固件包，进行一次配置，FPGA还有一个重配置的ip核，也可以在FPGA运行过程中进行重配置。<br>　　FPGA上电后会自动从0地址开始加载镜像文件（把一个GPGA工程综生成的文件成为一个镜像文件），看别人说的rpd文件末尾至少留32个字节的FF，我认为可能是加载到32个连续的FF就会停止加载文件。<br>　　我的思路是编写一个工程称为出厂配置工程，再编写一个工程称为应用工程，应用工程是我们正常的编写的工程，也就是我们需要更新的固件。将出厂配置工程转换成jic文件并通过JTAG烧进flash中，但是只将该文件烧写在flash的前几个扇区，具体几个扇区由你的出厂配置程序的大小来定，我自己生成的jic文件占用6个扇区，在生成Jic文件时可以选择代码在flash中的地址的，所以我的出厂配置所占的地址范围为0x0 ~ 0x5FFFF，占前6个扇区。而我编写的应用工程则放在从0x60000开始地址的地方，在线烧写镜像文件时，将需要更新的文件从0x60000地址开始写就可以了。我们在线烧写的是rpd文件，后面具体介绍这几种文件。</p>
-<p><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/%E7%94%9F%E6%88%90%E7%9A%84JIC%E6%96%87%E4%BB%B6%E6%8C%87%E5%AE%9A%E5%9C%B0%E5%9D%80.JPG" alt="生成JIC文件指定地址"></p>
-<h2 id="2-1FPGA配置方式"><a href="#2-1FPGA配置方式" class="headerlink" title="2.1FPGA配置方式"></a>2.1FPGA配置方式</h2><p>1.JTAG方式</p>
-<p>　　通过JTAG接口，利用Quartus II软件可以直接对FPGA进行单独的硬件重新配置。Quartus II软件在编译时会自动生成用于JTAG配置的.sof文件。如果同时使用AS方式和JTAG方式来配置FPGA，JTAG配置方式拥有最高的优先级，此时AS方式将停止，而执行JTAG方式配置。</p>
-<p>2.FPGA主动串行(AS)方式</p>
-<p>　　主动串行配置方式(AS)是将配置数据事先存储在串行配置器件EPCS中,然后在系统上电时Cyclone IV FPGA通过串行接口读取配置数据（如果是压缩数据，还会进行解压缩处理）对内部的SRAM单元进行配置。因为上述配置过程中FPGA控制配置接口，因此通常称为主动配置方式。在配置期间，Cyclone IV用过串行接口来读配置数据，来对里面的SRAM编程。串行配置器件的四个接口包括，串行时钟输入DCLK，串行数据输出DATA，低有效的片选信号NCE，串行数据输入ASDI。本文就是采用这种方式。</p>
-<p>3.FPGA被动(Passive)方式</p>
-<p>　　此方法用的较少，不做介绍。</p>
-<h2 id="2-2配置芯片EPCS16"><a href="#2-2配置芯片EPCS16" class="headerlink" title="2.2配置芯片EPCS16"></a>2.2配置芯片EPCS16</h2><p><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/flash%E8%8A%AF%E7%89%87%E5%88%97%E8%A1%A8.JPG" alt="flash芯片列表"></p>
-<p>　　如上图为EPCS系列容量表。EP4CE30F23I7采用EPCS16作为配置芯片，EPCS16共有16Mbit的存储空间被分成了32个扇区（ sector），每个扇区又分成256页（ page），每一页包含256字节。EPCS16各扇区的字节地址如下图所示：<br>对EPCS16的具体操作，在讲到ASMI IP核时再具体讲，我们利用ALTERA官方的IP核来对EPCS16进行擦除、读、写的操作。</p>
-<p><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/EPCS16%E5%9C%B0%E5%9D%80.JPG" alt="EPCS16地址"></p>
-<h2 id="2-3FPGA生成的几种文件"><a href="#2-3FPGA生成的几种文件" class="headerlink" title="2.3FPGA生成的几种文件"></a>2.3FPGA生成的几种文件</h2><h3 id="1-sof文件"><a href="#1-sof文件" class="headerlink" title="1.sof文件"></a>1.sof文件</h3><p>　　sof文件是编译（分析、综合、布线、生成、时序）过程中生成的一个文件，生成的sof文件是可以直接通过JTAG口下载到FPGA的SRAM中去并直接执行。</p>
-<h3 id="2-jic文件"><a href="#2-jic文件" class="headerlink" title="2.jic文件"></a>2.jic文件</h3><p>　　jic文件不是在编译过程中生成的，而是需要使用Quartus II软件的“Convert Programing File”功能将sof文件转换得到的。得到的jic文件，通过JTAG口可以将jic文件通过FPGA作为桥接芯片下载到配置芯片中去。</p>
-<h3 id="3-pof文件"><a href="#3-pof文件" class="headerlink" title="3.pof文件"></a>3.pof文件</h3><p>　　pof文件和sof文件一样也是在Assemble过程中生成的，但是pof文件是不能直接下载到FPGA的SRAM中去的，而是通过ASP端口直接下载到FPGA的配置芯片中去的。配置芯片一般是串行FLASH芯片，在上电的时候FPGA会主动的从配置芯片中读取数据并烧写内部的SRAM数据然后执行程序。（在assignments – device – device and pin option, 在configuration 选项卡当中，要勾上Use Configuration device，并选择好配置芯片。 选择configuration scheme为Active Serial，编译就能生成pof文件）</p>
-<h3 id="4-rpd文件"><a href="#4-rpd文件" class="headerlink" title="4.rpd文件"></a>4.rpd文件</h3><p>　　RPD为包含cyclone系列芯片二进制位流数据和配置数据的二进制文件的合成文件。我们生成rpd文件前，先要生成Pof文件再用Quartus II软件的“Convert Programing File”功能将pof文件转换成rpd文件。</p>
-<p>　　我们一般是通过JTAG将Jic文件烧进EPCS16,在线升级是将rpd文件通过串口/网口等方式烧进EPCS16，当然烧写的过程是依靠FPGA来完成，我们要写一段代码用来接收串口/网口数据，将其写入EPCS16中。jic、rpd文件生成时，都是占2M字节，但文件内实际有效的并没有那么大，其中无效的数据都由FF填满，可以手动删除，但至少保留32个字节的FF。</p>
-<h1 id="3-需要使用到的IP核"><a href="#3-需要使用到的IP核" class="headerlink" title="3.需要使用到的IP核"></a>3.需要使用到的IP核</h1><p>主要是“ASMI IP核”和“ Remote Update IP核”，还有PLL IP核。PLL不必多说。另外两个IP核配置如下图。</p>
-<p>　　如下面左边图所示,选择要添加的端口。注意“Single byte write”和“Page write”分别表示以“单字节”写入或“多字节”写入。EPCS16是支持多字节写入的，最多可连续写入256个字节，我这里选择的是单字节写入。“Use ‘bulk_erase’ port”和“Use ‘sector_erase’ port”分别表示是以一次性擦除所以扇区和每次只擦除一个扇区。具体内容可参照“Serial Configuration Devices(EPCS1, EPCS4, EPCS16, EPCS64,and EPCS128) Data Sheet”和“ASMI Parallel Intel® FPGA IP Core User Guide”这两个文档，在ALTERA官网可以找到，里面有具体的读，写，擦除的时序图。</p>
-<p><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG" alt="ASMI IP核端口选择"><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/ASMI%E6%A0%B8.JPG" alt="ASMI IP核"></p>
-<p>　　REMOTE IP核配置如下图，最好将 “Enable reconfig POF checking”选上，这是该IP核的一个功能，当触发重配置，该功能会校验指定重配置地址的镜像文件是否是有效地，这一点至关重要，后面讲实现思路时再具体讲为什么一定要这个功能。</p>
-<p><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9.JPG" alt="REMOTE IP核端口选择"><img src="https://github.com/watch-xx/watchman.github.io/raw/master/img/FPGA%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0/REMOTE%E6%A0%B8.JPG" alt="REMOTE IP核"></p>
-<p>　　前面提到过ASMI IP核主要实现读写配置存储器EPCS16，这个IP核就是用来擦除，写，读EPCS16，我们通过这个ip核，不用再管对EPCS16擦除，写，读的时序，EPCS16的擦除，写，读时序也并不复杂，完全可以直接写，在EPCS16手册里有详细的时序图，但推荐使用asmi ip核，因为要使用remote update ip核的“pof_error”功能，必须要使用asmi Ip核。在“Remote Update Intel® FPGA IP User Guide”手册里有详细介绍。<br>　　这里再简单交代一下配置remote ip 核代码的流程。<br>　　remote ip核发起重配置需要一段代码来实现，主要内容就是指定重配置地址，然后发起重配置。</p>
-<h1 id="3-功能实现思路"><a href="#3-功能实现思路" class="headerlink" title="3.功能实现思路"></a>3.功能实现思路</h1><p>　<br>　　一个完整的远程系统升级应该包括两个工程文件。一个出厂配置工程，一个应用工程。两个工程分别在EPCS16中所占的储存空间是 0x0 ~ 0x5FFFF，0x60000 ~ 0x1FFFFF。FPGA上电，执行出厂配置工程，立刻触发一次重配置，执行应用工程程序。触发重配置时，会执行”pof_error”，这是remote update ip核的一个功能，它会去读取指定重配置地址的工程文件是否是有效的，若是一个有效的文件，就会执行重配置,去执行应用工程；若该地址文件为不完整文件或空文件，则会重配置失败，FPGA配置的电路还是出厂配置工程，然后在出厂配置工程里实现接收串口/网口的更新数据并将其写入flash。</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/FPGA/" rel="tag"># FPGA</a>
-          
-            <a href="/tags/ALTERA/" rel="tag"># ALTERA</a>
-          
-            <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0-%E5%9C%A8%E7%BA%BF%E5%8D%87%E7%BA%A7/" rel="tag"># 远程更新/在线升级</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/06/29/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 搭建个人博客
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -483,10 +348,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -507,17 +368,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -604,22 +456,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-摘要"><span class="nav-number">1.</span> <span class="nav-text">1.摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-FPGA上电加载过程"><span class="nav-number">2.</span> <span class="nav-text">2.FPGA上电加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1FPGA配置方式"><span class="nav-number">2.1.</span> <span class="nav-text">2.1FPGA配置方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2配置芯片EPCS16"><span class="nav-number">2.2.</span> <span class="nav-text">2.2配置芯片EPCS16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3FPGA生成的几种文件"><span class="nav-number">2.3.</span> <span class="nav-text">2.3FPGA生成的几种文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sof文件"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.sof文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-jic文件"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.jic文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-pof文件"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.pof文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-rpd文件"><span class="nav-number">2.3.4.</span> <span class="nav-text">4.rpd文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-需要使用到的IP核"><span class="nav-number">3.</span> <span class="nav-text">3.需要使用到的IP核</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-功能实现思路"><span class="nav-number">4.</span> <span class="nav-text">3.功能实现思路</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -764,10 +600,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
